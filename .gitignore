@@ -1,0 +1,22 @@
+# File debug/temporary - jangan di-upload
+cek_kolom.php
+cek_user.php
+cek_data.php
+inspect.php
+inspect2.php
+test_session.php
+fix_db.php
+fix_divs.php
+fix_layout.php
+fix_navbar.php
+fix_password.php
+otomatis_login.php
+reset_password.php
+
+# Upload files (beda di tiap environment)
+uploads/*
+!uploads/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
