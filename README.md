@@ -1,83 +1,97 @@
 # Aplikasi Pengaduan dan Penanganan Infrastruktur IT
 
-> Sistem pengaduan dan penanganan masalah infrastruktur IT berbasis web, dikembangkan saat **Program Magang (Kerja Praktik) di PT. Pupuk Sriwidjaja Palembang**.
+Sistem pengaduan dan penanganan masalah infrastruktur IT berbasis web, dikembangkan saat **Program Magang di PT Pupuk Sriwidjaja Palembang**.
 
 ---
 
-## 📋 Tentang Aplikasi
+## Tentang Aplikasi
 
-Aplikasi ini dibangun untuk memudahkan proses pengaduan dan penanganan masalah infrastruktur IT di lingkungan PT. Pupuk Sriwidjaja Palembang. Setiap departemen dapat melaporkan kendala IT yang dialami, dan admin TI dapat memantau, memproses, serta menyelesaikan pengaduan secara terstruktur.
+Aplikasi ini dibangun untuk memudahkan proses pengaduan dan penanganan masalah infrastruktur IT di lingkungan PT. Pupuk Sriwidjaja Palembang. Setiap departemen dapat melaporkan kendala IT yang dialami, dan admin TI dapat memantau, memproses, serta menyelesaikan pengaduan secara terstruktur melalui antarmuka web.
 
-Aplikasi menggunakan **alur status bertahap**: `Baru → Proses → Validasi → Selesai`, sehingga setiap pengaduan dapat dipantau progress-nya secara real-time oleh kedua belah pihak.
+### Manfaat
+1. **Pelaporan Cepat** — Departemen dapat langsung melaporkan kendala IT tanpa harus datang ke ruangan TI, sehingga masalah dapat ditangani lebih awal.
+2. **Pemantauan Status** — Admin TI dan user dapat memantau progress penanganan secara real-time melalui alur status bertahap: `Baru → Proses → Validasi → Selesai`.
+3. **Dokumentasi Terstruktur** — Seluruh riwayat pengaduan tersimpan dengan rapi, mendukung evaluasi kinerja dan perencanaan infrastruktur IT secara berkelanjutan.
 
-## 🎯 Fitur Utama
+> ⚠️ **Catatan:** Aplikasi ini merupakan **sistem web internal** untuk pengelolaan pengaduan infrastruktur IT. Dikembangkan sebagai bagian dari program Kerja Praktik (Magang) dan dapat dikembangkan lebih lanjut sesuai kebutuhan perusahaan.
 
-1. **Dashboard Admin** — Ringkasan statistik: total departemen, masalah, pengaduan masuk/proses/validasi/selesai
-2. **Dashboard User** — Statistik pengaduan milik departemen yang bersangkutan
-3. **Manajemen Departemen** — Admin dapat menambah, mengedit, dan menghapus data departemen (user)
-4. **Manajemen Masalah** — Admin mengelola daftar kategori/tracker masalah IT
-5. **Pengaduan** — User membuat pengaduan baru dengan kategori, prioritas, deskripsi, dan upload bukti
-6. **Validasi** — User dapat memvalidasi apakah pengaduan sudah benar-benar selesai ditangani
-7. **Pencarian & Sorting** — Filter dan urutkan data berdasarkan kategori, status, atau tanggal
+---
 
-## 🖼️ Screenshot
+## Screenshots
 
-### Dashboard Admin
-![Dashboard Admin](screenshots/dashboard.png)
+### Dashboard
+![Dashboard - Statistik Pengaduan](screenshots/dashboard.png)
 
 ### Data Pengaduan
-![Data Pengaduan](screenshots/data-pengaduan.png)
+![Data Pengaduan - Daftar Pengaduan Masuk](screenshots/data-pengaduan.png)
 
 ### Data Departemen
-![Data Departemen](screenshots/data-departemen.png)
+![Data Departemen - Daftar User & Admin](screenshots/data-departemen.png)
 
 ### Data Masalah
-![Data Masalah](screenshots/data-masalah.png)
+![Data Masalah - Kategori Tracker](screenshots/data-masalah.png)
 
-## 🛠️ Teknologi
+---
 
-| Komponen | Teknologi |
-|----------|-----------|
-| Backend | PHP (Native) |
-| Database | MySQL |
-| Frontend | Bootstrap 5 |
-| Icons | Font Awesome, Bootstrap Icons |
-| Server | Laragon (Apache) |
+## Tech Stack
 
-## 🚀 Cara Instalasi
+| Teknologi | Keterangan |
+|-----------|------------|
+| PHP       | Backend & Logic |
+| MySQL     | Database |
+| Bootstrap 5 | Frontend Framework |
+| Font Awesome | Icons |
+| Laragon   | Local Server |
+
+---
+
+## Cara Menjalankan
 
 ### Prasyarat
-- [Laragon](https://laragon.org/) atau XAMPP (Apache + MySQL + PHP)
-- PHP 7.4+
-- MySQL 5.7+
+Pastikan sudah menginstall **[Laragon](https://laragon.org/download/)** (sudah termasuk Apache, PHP, dan MySQL).
 
-### Langkah-langkah
+### Langkah-Langkah
 
-1. **Clone repository**
-   ```bash
-   git clone https://github.com/AniffXP/Aplikasi-pengaduan-it.git
-   ```
+**1. Clone Repository**
+```bash
+git clone https://github.com/AniffXP/Aplikasi-Pengaduan-dan-Penanganan-Infrastruktur-IT.git
+```
 
-2. **Pindahkan ke folder web server**
-   ```
-   Laragon: C:\laragon\www\PengaduanIT\
-   XAMPP:   C:\xampp\htdocs\PengaduanIT\
-   ```
+**2. Pindahkan ke Folder Laragon**
 
-3. **Import database**
-   - Buka phpMyAdmin (`http://localhost/phpmyadmin`)
-   - Klik **Import** → pilih file `database/layanan_pengaduan.sql`
-   - Atau jalankan via terminal:
-     ```bash
-     mysql -u root < database/layanan_pengaduan.sql
-     ```
+Pindahkan folder hasil clone ke dalam folder `www` milik Laragon:
+```
+C:\laragon\www\PengaduanIT
+```
 
-4. **Akses aplikasi**
-   ```
-   http://localhost/PengaduanIT/
-   ```
+**3. Start Laragon**
 
-### 🔐 Akun Login Default
+Buka aplikasi Laragon → klik tombol **"Start All"** untuk menyalakan Apache dan MySQL.
+
+**4. Buat Database**
+
+- Buka **phpMyAdmin** di browser: `http://localhost/phpmyadmin`
+- Klik **"New"** di sidebar kiri
+- Buat database baru dengan nama: **`layanan_pengaduan`**
+- Klik **Create**
+
+**5. Import Database**
+
+- Pilih database `layanan_pengaduan` yang baru dibuat
+- Klik tab **"Import"**
+- Klik **"Choose File"**, pilih file: `database/layanan_pengaduan.sql`
+- Klik **"Go"** / **"Import"**
+
+**6. Buka di Browser**
+
+Akses website di browser:
+```
+http://localhost/PengaduanIT/
+```
+
+**7. Login**
+
+Gunakan kredensial berikut:
 
 | Role | Username | Password |
 |------|----------|----------|
@@ -88,40 +102,61 @@ Aplikasi menggunakan **alur status bertahap**: `Baru → Proses → Validasi →
 | User (Produksi) | `departemenproduksi` | `user` |
 | User (Riset) | `departemenriset` | `user` |
 
-## 📁 Struktur Folder
+---
+
+## Struktur Folder
 
 ```
 PengaduanIT/
-├── aset/              # CSS custom
-│   └── style.css
-├── data departemen/   # CRUD departemen (admin)
-├── data masalah/      # CRUD tracker masalah (admin)
-├── data pengaduan/    # Kelola pengaduan (admin)
-├── database/          # SQL dump
-├── gambar/            # Logo & assets
-├── login/             # Halaman login & logout
-├── proses/            # Proses login
-├── screenshots/       # Screenshot aplikasi
-├── uploads/           # File bukti pengaduan
-├── user/              # Halaman user (departemen)
-├── index.php          # Dashboard admin
-└── koneksi.php        # Konfigurasi database
+├── aset/
+│   └── style.css             # File styling custom
+├── data departemen/
+│   ├── deprt.php             # Daftar departemen
+│   ├── tambah.php            # Tambah departemen
+│   ├── haledit.php           # Edit departemen
+│   └── hapus.php             # Hapus departemen
+├── data masalah/
+│   ├── masalah.php           # Daftar kategori masalah
+│   ├── tambah.php            # Tambah tracker
+│   ├── haledit.php           # Edit tracker
+│   └── hapus.php             # Hapus tracker
+├── data pengaduan/
+│   ├── pengaduan.php         # Daftar pengaduan (admin)
+│   ├── tambah.php            # Tambah pengaduan
+│   ├── detail.php            # Detail pengaduan
+│   ├── haledit.php           # Edit pengaduan
+│   └── hapus.php             # Hapus pengaduan
+├── database/
+│   └── layanan_pengaduan.sql # File SQL database
+├── gambar/                   # Logo & assets
+├── login/
+│   ├── login.php             # Halaman login
+│   └── logout.php            # Proses logout
+├── proses/
+│   └── login_proses.php      # Proses autentikasi
+├── screenshots/              # Screenshot aplikasi
+├── uploads/                  # File bukti pengaduan
+├── user/
+│   ├── dashboard.php         # Dashboard user
+│   ├── index.php             # Daftar pengaduan user
+│   ├── tambah.php            # Buat pengaduan baru
+│   ├── detail.php            # Detail & validasi
+│   └── masalah.php           # Lihat kategori masalah
+├── index.php                 # Dashboard admin
+└── koneksi.php               # Konfigurasi database
 ```
-
-## 📌 Alur Status Pengaduan
-
-```
-Baru → Proses → Validasi → Selesai
-                    ↓
-              (User validasi)
-              ↙           ↘
-     Selesai ✅     Kembali ke Proses 🔄
-```
-
-## ⚠️ Catatan
-
-> **Aplikasi ini dikembangkan saat Program Magang (Kerja Praktik) di PT. Pupuk Sriwidjaja Palembang** sebagai solusi penanganan masalah infrastruktur IT internal perusahaan. Aplikasi ini dibuat untuk keperluan pembelajaran dan pengembangan skill selama masa magang.
 
 ---
 
-Dibuat dengan ❤️ oleh **Abdur Hanif** — Program Magang PT. Pupuk Sriwidjaja Palembang
+## 👤 Developer
+
+**Abdurrahman Hanif**
+- 📧 ahanif562@gmail.com
+- 🔗 [GitHub](https://github.com/AniffXP)
+- 💬 https://t.me/anonyxpp
+
+---
+
+## 📄 Lisensi
+
+Project ini dibuat untuk keperluan **Laporan Magang (Kerja Praktik)** di PT Pupuk Sriwidjaja Palembang.
